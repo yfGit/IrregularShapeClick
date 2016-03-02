@@ -20,6 +20,17 @@
     
     NSMutableArray *nameArr = [NSMutableArray array];
     
+    
+     /**
+     *  1. 原型图得同等大小 (同样的画布,确保拉伸点击不错位)
+     *  2. 需要是.png 或.tiff 图片 (背景会透明的,最后判断的时候安排alpha值来确认是哪一张图片)
+     *  3. 自定义控件和类别 (老外的)
+     *        1) 响应链第一个图片, 转换点 (当前视图转图片)
+     *        2) 判断点对应的图片是的颜色的alpha 
+     *        3) 响应链 循环
+     *  tip : 其他的控件,仿照对应的属性就行
+     */
+    
     for (int i = 1; i <= 33; i++) {
         NSString *str = [NSString stringWithFormat:@"%d",i];
         [nameArr addObject:str];
@@ -37,17 +48,6 @@
     
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    UITouch * touch = [touches anyObject];
-//    CGPoint currentLocation = [touch locationInView:self.view];
-//    if(touches.count == 1) {
-//        UIButton *btn = (UIButton *)[self.view viewWithTag:11];
-//        
-//        [btn hitTest:currentLocation withEvent:event];
-//        
-//    }
-//}
 
 - (void)click:(UIButton *)btn
 {
